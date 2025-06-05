@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 300px;
+        }
+        div{
+            text-align:center;
+        }
+        button{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="sum()">購物車總額<p id="total"></p></button>
+    <button onclick="blue_sky()">清空購物車</button>
+
+    <div><img src="https://i2.momoshop.com.tw/1713416511/goodsimg/0003/565/074/3565074_R_m.webp" ></div>
+    <p>$100</p>
+    <button onclick="add1()">加入購物車</button>
+
+    <div><img src="https://b2eimg.pxec.com.tw/00100985/9faffc3b98684421bcba191ca19c32a7.jpg"></div>
+    <p>$105</p>
+    <button onclick="add2()">加入購物車</button>
+    <script>
+        let total=0
+        if(localStorage.getItem("total")!="0"){
+            let t=localStorage.getItem("total")
+            total=parseFloat(t);
+        }
+        else{
+            localStorage.setItem("total",total);
+        }
+        console.log(total)
+        function sum(){
+            document.getElementById("total").innerHTML=total;
+        }
+        function add1(){
+            total+=100;
+            localStorage.setItem("total",total);
+            console.log(total)
+        }
+        function add2(){
+            total+=105;
+            localStorage.setItem("total",total);
+            console.log(total)
+        }
+        function blue_sky(){
+            total=0
+            document.getElementById("total").innerHTML=total;
+            localStorage.setItem("total",total);
+        }
+    </script>
+</body>
+</html>
